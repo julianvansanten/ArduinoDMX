@@ -42,6 +42,12 @@ int DMXClass::begin(int universeSize)
   return 1;
 }
 
+int DMXClass::beginWithPins(int _universeSize, int txPin, int dePin, int rePin) {
+  begin(_universeSize);
+  RS485.setPins(txPin, dePin, rePin);
+  return 1;
+}
+
 void DMXClass::end()
 {
   RS485.end();
